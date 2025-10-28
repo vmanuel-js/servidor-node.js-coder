@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Papa",
+    "description": "Papa Blanca",
+    "code": "P001",
+    "price": 2.5,
+    "status": true,
+    "stock": 100,
+    "category": "Verduras",
+    "thumbnails": []
+  },
+  {
+    "id": 2,
+    "title": "Camote",
+    "description": "Camote Amarillo",
+    "code": "C001",
+    "price": 3,
+    "status": true,
+    "stock": 80,
+    "category": "Verduras",
+    "thumbnails": []
+  },
+  {
+    "id": 3,
+    "title": "Tomate",
+    "description": "Tomate Rojo",
+    "code": "T001",
+    "price": 2,
+    "status": true,
+    "stock": 120,
+    "category": "Verduras",
+    "thumbnails": []
+  },
+  {
+    "id": 4,
+    "title": "Mouse gamer",
+    "description": "RGB ergonómico",
+    "code": "MG001",
+    "price": 99,
+    "status": true,
+    "stock": 30,
+    "category": "Periféricos",
+    "thumbnails": [
+      "mouse1.png",
+      "mouse2.png"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Teclado gamer",
+    "description": "RGB mecánico",
+    "code": "TG001",
+    "price": 200,
+    "status": true,
+    "stock": 50,
+    "category": "Periféricos",
+    "thumbnails": [
+      "teclado1.png",
+      "teclado2.png"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Silla gamer",
+    "description": "silla ergonómica",
+    "code": "SG001",
+    "price": 800,
+    "status": true,
+    "stock": 50,
+    "category": "Mueble",
+    "thumbnails": [
+      "silla1.png",
+      "silla2.png"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Laptop gamer",
+    "description": "con teclado rgb",
+    "code": "LG001",
+    "price": 3200,
+    "status": true,
+    "stock": 100,
+    "category": "Tecnología",
+    "thumbnails": [
+      "laptop1.png",
+      "laptop2.png",
+      "laptop3.png"
+    ]
+  }
+]
