@@ -90,5 +90,18 @@
       "laptop2.png",
       "laptop3.png"
     ]
+  },
+  {
+    "id": 8,
+    "title": "Manzana",
+    "description": "Manzana Roja",
+    "code": "MR001",
+    "price": 1.5,
+    "status": true,
+    "stock": 2000,
+    "category": "Fruta",
+    "thumbnails": [
+      "manzana1.png"
+    ]
   }
 ]
