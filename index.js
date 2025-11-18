@@ -1,4 +1,3 @@
-import { error } from "console";
 import express from "express";
 import fs from "fs/promises";
 
@@ -120,7 +119,7 @@ class CarritoManager {
 
   async agregarProductoAlCarrito(cid, pid) {
     const carritos = await this.obtenerCarrito();
-    const carrito = carritos.find((c) => c.id === id);
+    const carrito = carritos.find((c) => c.id === cid);
 
     if (!carrito) {
       return null;
@@ -186,7 +185,7 @@ servidor.post("/api/products", async (req, res) => {
 });
 
 // PUT -> /api/products/:pid
-servidor.put("api/products/:pid", async (req, res) => {
+servidor.put("/api/products/:pid", async (req, res) => {
   const id = parseInt(req.params.pid);
   const field = req.body;
 
@@ -199,7 +198,7 @@ servidor.put("api/products/:pid", async (req, res) => {
 });
 
 // DELETE /api/products/:pid
-servidor.delete("api/products/:pid", async (req, res) => {
+servidor.delete("/api/products/:pid", async (req, res) => {
   const id = parseInt(req.params.pid);
 
   const eliminado = await productManager.eliminarProducto(id);
@@ -230,7 +229,7 @@ servidor.get("/api/carts/:cid", async (req, res) => {
 });
 
 // POST -> /api/carts/:cid/product/:pid
-servidor.get("/api/carts/:cid/product/:pid", async (req, res) => {
+servidor.post("/api/carts/:cid/product/:pid", async (req, res) => {
   const cid = parseInt(req.params.cid);
   const pid = parseInt(req.params.pid);
   const carritoActualizado = await cartManager.agregarProductoAlCarrito(
@@ -247,5 +246,5 @@ servidor.get("/api/carts/:cid/product/:pid", async (req, res) => {
 
 // Servidor en el puerto 8080
 servidor.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor corriendo en el puerto http://localhost:${PORT}`);
 });

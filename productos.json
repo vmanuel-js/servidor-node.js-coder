@@ -2,13 +2,15 @@
   {
     "id": 1,
     "title": "Papa",
-    "description": "Papa Blanca",
+    "description": "Papa Amarilla",
     "code": "P001",
     "price": 2.5,
     "status": true,
-    "stock": 100,
+    "stock": 110,
     "category": "Verduras",
-    "thumbnails": []
+    "thumbnails": [
+      "papaAmarilla1.png"
+    ]
   },
   {
     "id": 2,
