@@ -8,9 +8,7 @@
     "status": true,
     "stock": 110,
     "category": "Verduras",
-    "thumbnails": [
-      "papaAmarilla1.png"
-    ]
+    "thumbnails": ["papaAmarilla1.png"]
   },
   {
     "id": 2,
@@ -43,10 +41,7 @@
     "status": true,
     "stock": 30,
     "category": "Periféricos",
-    "thumbnails": [
-      "mouse1.png",
-      "mouse2.png"
-    ]
+    "thumbnails": ["mouse1.png", "mouse2.png"]
   },
   {
     "id": 5,
@@ -57,10 +52,7 @@
     "status": true,
     "stock": 50,
     "category": "Periféricos",
-    "thumbnails": [
-      "teclado1.png",
-      "teclado2.png"
-    ]
+    "thumbnails": ["teclado1.png", "teclado2.png"]
   },
   {
     "id": 6,
@@ -71,10 +63,7 @@
     "status": true,
     "stock": 50,
     "category": "Mueble",
-    "thumbnails": [
-      "silla1.png",
-      "silla2.png"
-    ]
+    "thumbnails": ["silla1.png", "silla2.png"]
   },
   {
     "id": 7,
@@ -85,11 +74,7 @@
     "status": true,
     "stock": 100,
     "category": "Tecnología",
-    "thumbnails": [
-      "laptop1.png",
-      "laptop2.png",
-      "laptop3.png"
-    ]
+    "thumbnails": ["laptop1.png", "laptop2.png", "laptop3.png"]
   },
   {
     "id": 8,
@@ -100,8 +85,6 @@
     "status": true,
     "stock": 2000,
     "category": "Fruta",
-    "thumbnails": [
-      "manzana1.png"
-    ]
+    "thumbnails": ["manzana1.png"]
   }
 ]

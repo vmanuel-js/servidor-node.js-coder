@@ -27,6 +27,10 @@ class ProductosManager {
     }
   }
 
+  async obtenerProductoPorId(id) {
+    return this.obtenerProductosPorId(id);
+  }
+
   // Agregar un nuevo producto
   async agregarProducto(productoData) {
     const producto = await this.obtenerProductos();
