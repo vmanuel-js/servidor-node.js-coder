@@ -2,51 +2,56 @@ import ProductModel from "../models/product.model.js";
 
 export const getAllProducts = async (req, res) => {
   try {
-    const limit = parseInt(req.query.limit) || 10;
-    const page = parseInt(req.query.page) || 1;
-    const sort = req.query.sort;
-    const query = req.query.query;
+    let { limit = 10, page = 1, sort, query } = req.query;
 
-    let filtro = {};
+    limit = parseInt(limit);
+    page = parseInt(page);
+
+    const filter = {};
 
     if (query) {
-      if (query === "available") filtro.status = true;
-      else if (query === "unavailable") filtro.status = false;
-      else filtro.category = query;
+      if (query === "available") filter.status = true;
+      else if (query === "unavailable") filter.status = false;
+      else if (query === "true" || query === "false")
+        filter.status = query === "true";
+      else filter.category = query;
     }
 
-    let sortOption = {};
-    if (sort === "asc") sortOption.price = 1;
-    if (sort === "desc") sortOption.price = -1;
+    const sortConfig = {};
+    if (sort === "asc") sortConfig.price = 1;
+    if (sort === "desc") sortConfig.price = -1;
 
-    const resultado = await ProductModel.paginate(filtro, {
+    const result = await ProductModel.paginate(filter, {
       limit,
       page,
-      sort: sortOption,
+      sort: sortConfig,
       lean: true,
     });
 
-    const baseUrl = `${req.protocol}://${req.get("host")}${req.baseUrl}`;
+    const baseURL = `${req.protocol}://${req.get("host")}${req.baseUrl}`;
+
+    const prevLink = result.hasPrevPage
+      ? `${baseURL}?page=${result.prevPage}&limit=${limit}`
+      : null;
+
+    const nextLink = result.hasNextPage
+      ? `${baseURL}?page=${result.nextPage}&limit=${limit}`
+      : null;
 
     res.json({
       status: "success",
-      payload: resultado.docs,
-      totalPages: resultado.totalPages,
-      prevPage: resultado.prevPage,
-      nextPage: resultado.nextPage,
-      page: resultado.page,
-      hasPrevPage: resultado.hasPrevPage,
-      hasNextPage: resultado.hasNextPage,
-      prevLink: resultado.hasPrevPage
-        ? `${baseUrl}?page=${resultado.prevPage}&limit=${limit}`
-        : null,
-      nextLink: resultado.hasNextPage
-        ? `${baseUrl}?page=${resultado.nextPage}&limit=${limit}`
-        : null,
+      payload: result.docs,
+      totalPages: result.totalPages,
+      prevPage: result.prevPage,
+      nextPage: result.nextPage,
+      page: result.page,
+      hasPrevPage: result.hasPrevPage,
+      hasNextPage: result.hasNextPage,
+      prevLink,
+      nextLink,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ status: "error", error: "Error en el servidor" });
+    res.status(500).json({ status: "error", error: error.message });
   }
 };
 
